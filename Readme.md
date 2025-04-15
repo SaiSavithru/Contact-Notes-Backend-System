@@ -4,7 +4,7 @@ This is a secure internal backend service that allows users to manage contacts a
 
 ## 🧩 Features
 
-- **JWT Authentication** for Contact and Notes endpoints
+- JWT Authentication for Contact and Notes endpoints
 - Full CRUD for Contacts and Notes
 - Field normalization for inbound note data (`note_body`, `note_text` → `body`)
 - REST API with Swagger (OpenAPI) documentation

@@ -68,7 +68,7 @@ router.get('/', noteController.getNotesForContact);
  *       201:
  *         description: Note created successfully
  *       400:
- *         description: Bad Request (note_body/note_text is required)
+ *         description: Bad Request (note_body/note_text/body is required)
  *       401:
  *         description: Unauthorized - JWT token missing or invalid
  *       404:

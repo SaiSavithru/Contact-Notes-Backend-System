@@ -21,6 +21,10 @@ app.use(limiter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/contacts', authMiddleware, contactsRoute);
 app.use('/api/contacts/:contactId/notes', authMiddleware, notesRoute);
+// To test without JWT Auth Tokens
+// app.use('/api/contacts', contactsRoute);
+// app.use('/api/contacts/:contactId/notes', notesRoute);
+
 app.get('/api/external-service', async (req, res) => {
   try {
     const data = await makeAuthenticatedRequest({

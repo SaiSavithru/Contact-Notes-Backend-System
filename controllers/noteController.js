@@ -101,40 +101,40 @@ exports.getNote = async (req, res) => {
 };
 
 exports.updateNote = async (req, res) => {
-    const contactId = req.params.contactId;
-    const noteId = req.params.noteId;
-    const { body } = req.body || {};
+  const contactId = req.params.contactId;
+  const noteId = req.params.noteId;
+  const { body } = req.body || {};
 
-    try {
-      const contact = await withTimeout(
-        contactModel.getContactById(contactId),
-        TIMEOUT_MS
-      );
-      if (!contact) {
-        return res.status(404).json({ error: 'Contact not found' });
-      }
-
-      const note = await withTimeout(
-        noteModel.getNote(contactId, noteId),
-        TIMEOUT_MS
-      );
-      if (!note || note.length === 0) {
-        return res.status(404).json({ error: 'Note not found' });
-      }
-      if (!body || body.length === 0) {
-        return res.status(400).json({ error: 'Note Body is required' });
-      }
-
-      const updatedNote = await withTimeout(
-        noteModel.updateNote(noteId, body),
-        TIMEOUT_MS
-      );
-
-      await retryWithBackOff(() => produceNoteEvent(updatedNote));
-      res.status(200).json(updatedNote);
-    } catch (err) {
-      res.status(500).json({ error: 'Failed to update note' });
+  try {
+    const contact = await withTimeout(
+      contactModel.getContactById(contactId),
+      TIMEOUT_MS
+    );
+    if (!contact) {
+      return res.status(404).json({ error: 'Contact not found' });
     }
+
+    const note = await withTimeout(
+      noteModel.getNote(contactId, noteId),
+      TIMEOUT_MS
+    );
+    if (!note || note.length === 0) {
+      return res.status(404).json({ error: 'Note not found' });
+    }
+    if (!body || body.length === 0) {
+      return res.status(400).json({ error: 'Note Body is required' });
+    }
+
+    const updatedNote = await withTimeout(
+      noteModel.updateNote(noteId, body),
+      TIMEOUT_MS
+    );
+
+    await retryWithBackOff(() => produceNoteEvent(updatedNote));
+    res.status(200).json(updatedNote);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update note' });
+  }
 };
 
 exports.deleteNote = async (req, res) => {

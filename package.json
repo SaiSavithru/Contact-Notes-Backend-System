@@ -6,8 +6,8 @@
   "scripts": {
     "init-db": "node config/initDb.js",
     "gen-token": "node utils/tokenGenerator.js",
-    "start": "node index.js",
-    "dev": "concurrently \"nodemon index.js\" \"node mock-external-app.js\"",
+    "start": "concurrently \"node config/initDb.js\" \"node index.js\" \"node mock-external-app.js\"",
+    "dev": "concurrently \"node config/initDb.js\" \"nodemon index.js\" \"nodemon mock-external-app.js\"",
     "unit-tests": "cross-env KAFKAJS_NO_PARTITIONER_WARNING=1 jest tests/unit",
     "unit-contacts": "jest --testPathPattern=tests/unit/contactController",
     "unit-notes": "cross-env KAFKAJS_NO_PARTITIONER_WARNING=1 jest --testPathPattern=tests/unit/noteController",

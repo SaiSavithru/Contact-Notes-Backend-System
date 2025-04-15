@@ -7,17 +7,9 @@ This is a secure internal backend service that allows users to manage contacts a
 - JWT Authentication for Contact and Notes endpoints
 - Full CRUD for Contacts and Notes
 - Field normalization for inbound note data (`note_body`, `note_text` → `body`)
-- REST API with Swagger (OpenAPI) documentation
-- 📉 Graceful error handling, retries with backoff, and timeouts
-- 🚦 Rate limiting simulation for outbound service calls
-
-## 🚀 Getting Started
-
-### 📦 Prerequisites
-
-- Node.js/Express.js
-- PostgreSQL
-- `npm`
+- REST API with Swagger for API documentation
+- Graceful error handling, retries with backoff, and timeouts
+- Rate limiting simulation for outbound service calls
 
 ## 📘 API Documentation
 
@@ -37,7 +29,20 @@ This is a secure internal backend service that allows users to manage contacts a
 - PUT - /api/contacts/:contactId/notes/:noteId - Update a note
 - DELETE - /api/contacts/:contactId/notes/:noteId - Delete a note
 
-## Test Cases
+## 🧪 Test Cases
 
 - Unit Tests (npm run unit-tests or npm run unit-contacts and npm run unit-notes)
 - Integration Tests (npm run integration-tests or npm run integration-contacts and npm run integration-notes)
+
+## 🚀 Getting Started
+
+### 📦 Prerequisites
+
+- Node.js/Express.js
+- PostgreSQL (Database)
+- `npm` and related dependencies `npm install`
+- Jest/Supertest
+
+### ⚙️ Setup and Description
+
+- Read Documentation.txt

@@ -21,19 +21,21 @@ This is a secure internal backend service that allows users to manage contacts a
 
 ## 📘 API Documentation
 
-- Contacts Resource
-  GET - /api/contacts - Get all contacts
-  POST - /api/contacts - Create a new contact
-  GET - /api/contacts/:id - Get contact by ID
-  PUT - /api/contacts/:id - Update contact by ID
-  DELETE - /api/contacts/:id - Delete contact by ID
+### Contacts Resource
 
-- Notes Resource
-  GET - /api/contacts/:contactId/notes - Get notes for contact
-  POST - /api/contacts/:contactId/notes - Create note
-  GET - /api/contacts/:contactId/notes/:noteId - Get a specific note
-  PUT - /api/contacts/:contactId/notes/:noteId - Update a note
-  DELETE - /api/contacts/:contactId/notes/:noteId - Delete a note
+- GET - /api/contacts - Get all contacts
+- POST - /api/contacts - Create a new contact
+- GET - /api/contacts/:id - Get contact by ID
+- PUT - /api/contacts/:id - Update contact by ID
+- DELETE - /api/contacts/:id - Delete contact by ID
+
+### Notes Resource
+
+- GET - /api/contacts/:contactId/notes - Get notes for contact
+- POST - /api/contacts/:contactId/notes - Create note
+- GET - /api/contacts/:contactId/notes/:noteId - Get a specific note
+- PUT - /api/contacts/:contactId/notes/:noteId - Update a note
+- DELETE - /api/contacts/:contactId/notes/:noteId - Delete a note
 
 ## Test Cases
 
